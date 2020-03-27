@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "736314097936",
+    "firebase_url": "https://stepout-a8df1.firebaseio.com",
+    "project_id": "stepout-a8df1",
+    "storage_bucket": "stepout-a8df1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736314097936:android:f7c84a651d2f28b3116595",
+        "android_client_info": {
+          "package_name": "com.troyhack.stepout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736314097936-sipnlfc17aui298k8vboammuioefl60n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKc1PheYoKU0gVSRpty8MnqBYnjMDnMmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736314097936-sipnlfc17aui298k8vboammuioefl60n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
