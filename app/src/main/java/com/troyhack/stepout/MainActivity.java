@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private String mActivityTitle;
+
+    //buttons for homescreen
+    private Button arButton;
+    private Button chatButton;
+    private Button surveyButton;
 
 
     @Override
@@ -45,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+
+        //send to one of three screens
+        sendtoScreen();
     }
 
 
@@ -65,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+    //DRAWER STUFF
     private void addDrawerItems() {
         String[] osArray = { "Settings", "Log Out" };
         mAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, osArray);
@@ -145,5 +157,37 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    //button selector
+    private void sendtoScreen(){
+        arButton = (Button) findViewById(R.id.ar);
+        chatButton = (Button) findViewById(R.id.chatroom);
+        surveyButton = (Button) findViewById(R.id.survey);
+
+        arButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TO DO: go to AR room
+                Toast.makeText(MainActivity.this, "loading virtual world", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TO DO: go to chat room activity
+                Toast.makeText(MainActivity.this, "going to chatroom", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        surveyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TO DO : go to survey activity
+                Toast.makeText(MainActivity.this, "going to survey", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
