@@ -19,4 +19,23 @@
         app:civ_border_width="2dp"
         app:civ_border_color="#FF000000"/>
 
+    <EditText
+        android:id="@+id/set_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image"
+        android:drawableStart="@drawable/edit_name"
+        android:hint="Full Name"
+        android:inputType="textMultiLine"
+        android:textAlignment="center" />
+    <EditText
+        android:id="@+id/set_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/set_name"
+        android:inputType="textMultiLine"
+        android:hint="Status"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/edit_name" />
+
 </RelativeLayout>
