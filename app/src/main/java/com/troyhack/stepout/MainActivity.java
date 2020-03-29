@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //on start, if user is logged in, got to login activity
     @Override
     protected void onStart() {
         super.onStart();
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    //send to login activity method
     private void SendToLogin(){
         Intent login = new Intent(MainActivity.this, Login.class);
         startActivity(login);
