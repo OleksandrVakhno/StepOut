@@ -16,12 +16,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.annotations.NotNull;
 
 public class Signup extends AppCompatActivity {
 
 
     private FirebaseAuth auth;
+    private DatabaseReference db;
     private EditText fullNameField, emailField, passwordField, confirmField;
     private Button continueButton;
     private ProgressDialog progressDialog;
@@ -32,6 +35,8 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         initializeFields();
         auth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance().getReference();
+
     }
 
 
@@ -82,6 +87,10 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    String userId = auth.getCurrentUser().getUid();
+                    db.child("Users").child(userId).setValue("");
+
+
                     Toast.makeText(Signup.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                     SendToLogin();
                 }

@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SendToReigster();
+                SendToRegister();
             }
         });
         continueButton = (Button) findViewById(R.id.continueButton);
@@ -102,7 +102,7 @@ public class Login extends AppCompatActivity {
         finish();
     }
 
-    private void SendToReigster(){
+    private void SendToRegister(){
         Intent registerIntent = new Intent(Login.this, Signup.class);
         startActivity(registerIntent);
     }
