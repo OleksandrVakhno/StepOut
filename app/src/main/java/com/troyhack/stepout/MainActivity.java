@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         Toast.makeText(MainActivity.this, "Logging out...", Toast.LENGTH_SHORT).show();
+                        //sign out and send back to login screen
+                        auth.signOut();
+                        SendToLogin();
                         break;
 
                         default:
