@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.annotations.NotNull;
 
+import java.util.HashMap;
+
 public class Signup extends AppCompatActivity {
 
 
@@ -75,7 +77,7 @@ public class Signup extends AppCompatActivity {
     }
 
 
-    private void submitRegistration(String name, String email, String password){
+    private void submitRegistration(final String name,  final String email, final String password){
 
 
         progressDialog.setTitle("Creating the account...");
@@ -88,7 +90,11 @@ public class Signup extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     String userId = auth.getCurrentUser().getUid();
-                    db.child("Users").child(userId).setValue("");
+                    HashMap<String,String> vals= new HashMap<>();
+                    vals.put("uid", userId);
+                    vals.put("name", name);
+                    vals.put("status", "Hey, how are you feeling today?");
+                    db.child("Users").child(userId).setValue(vals);
 
 
                     Toast.makeText(Signup.this, "Account created successfully", Toast.LENGTH_SHORT).show();
