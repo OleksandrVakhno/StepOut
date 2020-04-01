@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".arplayground"></activity>
         <activity android:name=".Settings" />
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
@@ -23,6 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Arplayground"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="locked">
+        </activity>
+        <!-- This tag indicates that this application requires ARCore.  This results in the Google Play
+             Store downloading and installing ARCore along with the application. -->
+        <meta-data android:name="com.google.ar.core" android:value="required" />
     </application>
 
 </manifest>
