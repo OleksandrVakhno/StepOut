@@ -178,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TO DO: go to chat room activity
+                Intent chatIntent = new Intent(MainActivity.this, ChatActivity.class);
+                startActivity(chatIntent);
                 Toast.makeText(MainActivity.this, "going to chatroom", Toast.LENGTH_SHORT).show();
             }
         });
