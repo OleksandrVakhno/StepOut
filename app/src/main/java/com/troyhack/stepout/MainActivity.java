@@ -171,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TO DO: go to AR room
                 Toast.makeText(MainActivity.this, "loading virtual world", Toast.LENGTH_SHORT).show();
+                //go to ar room
+                Intent arplayground = new Intent(MainActivity.this, arplayground.class);
+                startActivity(arplayground);
             }
         });
 
