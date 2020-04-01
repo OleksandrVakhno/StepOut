@@ -3,6 +3,7 @@
     package="com.troyhack.stepout">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".ChatActivity"></activity>
+
+        <activity android:name=".arplayground"></activity>
+
         <activity android:name=".Settings" />
         <activity android:name=".Signup" />
         <activity android:name=".Login" />
