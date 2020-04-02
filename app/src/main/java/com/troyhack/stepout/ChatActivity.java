@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,9 +29,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -37,14 +41,17 @@ public class ChatActivity extends AppCompatActivity {
     private ActionBar toolbar;
     private ImageButton sendMessageButton;
     private EditText messageEditText;
-    private ScrollView scrollView;
-    private TextView displayMessage;
+    //private TextView displayMessage;
 
 
     private String uid, username, date, time;
     private FirebaseAuth auth;
     private DatabaseReference usersRef, groupchatRef;
 
+    private final List<Messages> messagesList = new ArrayList<>();
+    private LinearLayoutManager linearLayoutManager;
+    private MessageAdapter messageAdapter;
+    private RecyclerView userMessagesViews;
 
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
@@ -111,9 +118,12 @@ public class ChatActivity extends AppCompatActivity {
 
         sendMessageButton = (ImageButton) findViewById(R.id.sendmessageButton);
         messageEditText = (EditText) findViewById(R.id.chatEditText);
-        scrollView = (ScrollView) findViewById(R.id.scrollChatView);
-        displayMessage = (TextView) findViewById(R.id.groupChatTextView);
-
+        //displayMessage = (TextView) findViewById(R.id.groupChatTextView);
+        messageAdapter = new MessageAdapter(messagesList);
+        userMessagesViews = (RecyclerView) findViewById(R.id.scrollChatView);
+        linearLayoutManager = new LinearLayoutManager(ChatActivity.this);
+        userMessagesViews.setLayoutManager(linearLayoutManager);
+        userMessagesViews.setAdapter(messageAdapter);
 
         sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,11 +173,7 @@ public class ChatActivity extends AppCompatActivity {
 
             String messageKey = groupchatRef.push().getKey();
 
-            HashMap<String, Object> messageInfo = new HashMap<>();
-            messageInfo.put("name", username);
-            messageInfo.put("message", message);
-            messageInfo.put("date", date);
-            messageInfo.put("time", time);
+            Messages messageInfo = new Messages(uid, message, "text", date, username, time);
 
             groupchatRef.child(messageKey).setValue(messageInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -178,7 +184,7 @@ public class ChatActivity extends AppCompatActivity {
                 }
             });
 
-            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            //scrollView.fullScroll(ScrollView.FOCUS_DOWN);
 
 
         }
@@ -191,17 +197,10 @@ public class ChatActivity extends AppCompatActivity {
 
 
     private void DisplayMessages(DataSnapshot dataSnapshot){
-        Iterator it = dataSnapshot.getChildren().iterator();
-
-        while (it.hasNext()){
-            String chatDate = (String)((DataSnapshot)it.next()).getValue();
-            String chatMessage = (String)((DataSnapshot)it.next()).getValue();
-            String chatName = (String)((DataSnapshot)it.next()).getValue();
-            String chatTime = (String)((DataSnapshot)it.next()).getValue();
-
-            displayMessage.append(chatName +" :\n"+ chatMessage+" \n"+chatTime+"     "+ chatDate+"\n\n\n");
-            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
-        }
+        Messages messages = dataSnapshot.getValue(Messages.class);
+        messagesList.add(messages);
+        messageAdapter.notifyDataSetChanged();
+        userMessagesViews.smoothScrollToPosition(userMessagesViews.getAdapter().getItemCount());
     }
 
 
