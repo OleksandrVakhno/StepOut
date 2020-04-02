@@ -240,7 +240,7 @@ public class Arplayground extends AppCompatActivity implements GLSurfaceView.Ren
         // Permission denied with checking "Do not ask again".
         CameraPermissionHelper.launchPermissionSettings(this);
       }
-      finish();
+      //finish();
     }
   }
 
