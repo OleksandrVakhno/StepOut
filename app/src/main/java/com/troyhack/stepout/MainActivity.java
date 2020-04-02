@@ -7,10 +7,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -172,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                 //TO DO: go to AR room
                 Toast.makeText(MainActivity.this, "loading virtual world", Toast.LENGTH_SHORT).show();
                 //go to ar room
-                Intent arplayground = new Intent(MainActivity.this, arplayground.class);
+                Intent arplayground = new Intent(MainActivity.this, Arplayground.class);
                 startActivity(arplayground);
             }
         });
