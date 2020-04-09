@@ -65,7 +65,7 @@ public class Arplayground extends AppCompatActivity implements GLSurfaceView.Ren
   private static final String ASSET_ID = "6b7Ul6MeLrJ";
 
   // Scale factor to apply to asset when displaying.
-  private static final float ASSET_SCALE = 0.2f;
+  private static final float ASSET_SCALE = 0.6f;
 
   // Rendering. The Renderers are created here, and initialized when the GL surface is created.
   private GLSurfaceView surfaceView;
