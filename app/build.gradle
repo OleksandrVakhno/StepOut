@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.ar.sceneform.plugin'
 
 android {
     compileSdkVersion 29
@@ -38,6 +39,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //AR core dependency
+<<<<<<< HEAD
     implementation "com.google.ar.sceneform.ux:sceneform-ux:1.5.0"
 
     // ARCore library
@@ -52,4 +54,38 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation "androidx.annotation:annotation:1.1.0"
+=======
+    implementation "com.google.ar.sceneform:core:1.15.0"
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.15.0"
+
+    implementation 'com.google.android.material:material:1.0.0'
+>>>>>>> newAR
 }
+
+
+sceneform.asset('sampledata/models/fox/ArcticFox_Posed.obj',
+        'default',
+        'sampledata/models/fox/ArcticFox_Posed.sfa',
+        'src/main/assets/ArcticFox_Posed')
+
+
+sceneform.asset('sampledata/models/truck/truck.obj',
+        'default',
+        'sampledata/models/truck/truck.sfa',
+        'src/main/assets/truck')
+
+
+sceneform.asset('sampledata/models/sisters/sisters.obj',
+        'default',
+        'sampledata/models/sisters/sisters.sfa',
+        'src/main/assets/sisters')
+
+sceneform.asset('sampledata/models/dash/model.obj',
+        'default',
+        'sampledata/models/dash/model.sfa',
+        'src/main/assets/model')
+
+sceneform.asset('sampledata/models/peanut/peanut.obj',
+        'default',
+        'sampledata/models/peanut/peanut.sfa',
+        'src/main/assets/peanut')
