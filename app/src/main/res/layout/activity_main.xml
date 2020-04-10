@@ -35,7 +35,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/arialbold"
             android:text="Home"
-            android:textColor="@color/mainblue"
+            android:textColor="#509DF3"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
