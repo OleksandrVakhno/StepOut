@@ -35,7 +35,7 @@ class Model {
     }
 }
 
-public class ArPlayground extends AppCompatActivity {
+class ArPlayground extends AppCompatActivity {
 
     private ArFragment arFragment;
 
