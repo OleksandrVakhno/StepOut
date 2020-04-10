@@ -8,31 +8,95 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:src="@drawable/profile"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
+
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/receiverUsername"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="45dp"
+        android:text="Username"
+        android:textSize="14sp"/>
+
+
+
+    <TextView
+        android:layout_below="@+id/receiverUsername"
         android:id="@+id/receiverMessageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/messageProfileImage"
+        android:layout_marginTop="30dp"
         android:background="@drawable/receiver_message_layout"
         android:padding="10dp"
         android:textSize="14sp"
         android:textStyle="bold"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/receiverTime"
+        android:layout_below="@id/receiverMessageText"
+        android:layout_marginLeft="45dp"
+        android:layout_marginBottom="5dp"
+        android:text="11:00"
+        android:textSize="12sp"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/receiverDate"
+        android:layout_below="@id/receiverMessageText"
+        android:layout_marginLeft="100dp"
+        android:text="Jan 10 2020"
+        android:layout_marginBottom="5dp"
+        android:textSize="12sp"/>
+
+
+
+
+
+
+
+    <TextView
         android:id="@+id/senderMessageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/receiverMessageText"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/sender_messages_layout"
         android:padding="10dp"
         android:textSize="14sp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/senderTime"
+        android:layout_below="@id/senderMessageText"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="90dp"
+        android:text="11:00"
+        android:layout_marginBottom="5dp"
+        android:textSize="12sp"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/senderDate"
+        android:layout_below="@id/senderMessageText"
+        android:layout_alignParentRight="true"
+        android:text="Jan 10 2020"
+        android:layout_marginBottom="5dp"
+        android:textSize="12sp"/>
 
 
 
